@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <style>
+        input[type=submit] {
+        background-color: lightgreen;
+        border: 2px;
+        border-radius: 8px;
+        color: black;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        /*margin-left: 250px;*/
+        cursor: pointer;
+        }   
+        </style>
+
+            <title>Login and Registration</title>
+
+</head>
+<title></title>
+<body>
+    <h3> LOGIN and REGISTRATION </h3>
+
+        <h4> Register here! </h4>
+        <form action="/register" method='POST'>
+        
+            <label for="firstname">First name: </label> <br>       
+            <input type="text" name="firstname" bg=danger> <br>                        
+
+            <label for="lastname">Last name: </label> <br>       
+            <input type="text" name="lastname"> <br>          
+
+            <label for="email">Email: </label> <br>       
+            <input type="email" name="email"> <br>
+
+            <label for="password">Password: </label> <br>       
+            <input type="password" name="password"> <br>
+
+            <label for="confirm">Confirm password: </label> <br>       
+            <input type="password" name="pw_confirm"> <br> <br>
+        
+            <input type="submit" value="Register">
+        </form>
+
+
+       <h4> Login here! </h4>
+        <form action="/login" method='POST'>        
+            <label for="email">Email: </label> <br>       
+            <input type="email" name="email"> <br> 
+            <input type="password" name="password"> <br>     
+            <input type="submit" value="Login">
+        </form>
+
+        <!-- These Jinja2 lines will validate for all user-input. Very nice lines! -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    
+</body>
+</html>
+
